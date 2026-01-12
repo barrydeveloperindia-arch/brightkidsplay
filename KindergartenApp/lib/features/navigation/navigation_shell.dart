@@ -7,49 +7,51 @@ class NavigationShell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // In Kid Mode, we might want a persistent bottom bar or "Back to Home" button overlay.
-    // For now, it's a simple wrapper.
+    // Helper to determine index based on current location
+    final String location = GoRouterState.of(context).uri.toString();
+    int currentIndex = 0;
+    if (location.startsWith('/library')) {
+      currentIndex = 1;
+    }
+
     return Scaffold(
-      body: Stack(
-        children: [
-          child,
-          // Example: Persistent 'Home' button for kids
-          Positioned(
-            top: 40,
-            left: 20,
-            child: FloatingActionButton(
-              heroTag: 'home_btn',
-              mini: true,
-              child: const Icon(Icons.home_rounded),
-              onPressed: () => context.go('/kid'),
-            ),
+      body: child,
+      // Persistent Bottom Bar for immersive Kid navigation
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIndex,
+        onTap: (index) {
+          if (index == 0) {
+            context.go('/kid');
+          } else if (index == 1) {
+            context.go('/library');
+          }
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.map_rounded),
+            label: 'World',
           ),
-          // Example: Parent Gate Button
-          Positioned(
-            top: 40,
-            right: 20,
-            child: FloatingActionButton(
-              heroTag: 'parent_btn',
-              mini: true,
-              backgroundColor: Colors.grey[200],
-              child: const Icon(Icons.lock_outline, color: Colors.grey),
-              onPressed: () => context.push('/parent'),
-            ),
-          ),
-          // Library Button
-          Positioned(
-            bottom: 20,
-            left: 20,
-            child: FloatingActionButton.extended(
-              heroTag: 'library_btn',
-              icon: const Icon(Icons.menu_book_rounded),
-              label: const Text("Library"),
-              backgroundColor: Colors.purpleAccent,
-              onPressed: () => context.go('/library'),
-            ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.local_library_rounded),
+            label: 'Library',
           ),
         ],
+        selectedItemColor: Colors.purple,
+        unselectedItemColor: Colors.grey,
+        showUnselectedLabels: true,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
+        elevation: 10,
       ),
+      // Parent Gate Button (Floating to handle "Exit" logic)
+      floatingActionButton: FloatingActionButton(
+        heroTag: 'parent_btn',
+        mini: true,
+        backgroundColor: Colors.white,
+        child: const Icon(Icons.lock_outline, color: Colors.grey),
+        onPressed: () => context.push('/parent'),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
     );
   }
 }

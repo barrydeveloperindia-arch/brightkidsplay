@@ -59,41 +59,62 @@ class _ContentCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      shadowColor: Colors.purple.withOpacity(0.2),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
       child: InkWell(
         onTap: () => context.push('/player/${item.id}'),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
               child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey[300], // Placeholder for image
-                  borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+                decoration: const BoxDecoration(
+                  color: Color(0xFFF0F4F8), 
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
                 ),
-                child: const Icon(Icons.image, size: 50, color: Colors.grey),
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+                  child: Image.asset(
+                    'assets/images/thumb_${item.type.name}.png', // e.g. thumb_book.png
+                    fit: BoxFit.cover,
+                    errorBuilder: (ctx, err, stack) {
+                      return Icon(_getIconForType(item.type), size: 60, color: Colors.blueGrey.withOpacity(0.3));
+                    },
+                  ),
+                ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(12.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     item.title,
-                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16, fontFamily: 'ComicNeue'),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: 6),
                   Row(
                     children: [
-                      Icon(_getIconForType(item.type), size: 16, color: Colors.blueGrey),
-                      const SizedBox(width: 4),
-                      Text(
-                        item.type.name.toUpperCase(),
-                        style: const TextStyle(fontSize: 12, color: Colors.blueGrey),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                        decoration: BoxDecoration(
+                          color: _getColorForType(item.type).withOpacity(0.15),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(_getIconForType(item.type), size: 14, color: _getColorForType(item.type)),
+                            const SizedBox(width: 4),
+                            Text(
+                              item.type.name.toUpperCase(),
+                              style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: _getColorForType(item.type)),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -104,6 +125,15 @@ class _ContentCard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Color _getColorForType(ContentType type) {
+    switch (type) {
+      case ContentType.video: return Colors.red;
+      case ContentType.book: return Colors.blue;
+      case ContentType.game: return Colors.orange;
+      case ContentType.quiz: return Colors.green;
+    }
   }
 
   IconData _getIconForType(ContentType type) {
