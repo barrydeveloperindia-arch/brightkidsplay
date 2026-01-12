@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:rive/rive.dart';
 
 class AnimatedCharacter extends StatefulWidget {
-  final String assetPath;
-  final String stateMachineName;
-  final String? alignment; // 'left', 'right', 'center'
+  final String alignment; // 'left', 'right', 'center'
 
   const AnimatedCharacter({
     super.key,
-    this.assetPath = 'assets/rive/guide_bear.riv',
-    this.stateMachineName = 'GuideSM',
     this.alignment = 'center',
   });
 
@@ -18,11 +13,7 @@ class AnimatedCharacter extends StatefulWidget {
 }
 
 class _AnimatedCharacterState extends State<AnimatedCharacter> {
-  // Rive controllers would go here, but we are using a static image for now.
-  
   void talk() {
-    // Creating a "jump" effect to simulate talking/attention
-    // In a real implementation this would trigger Rive inputs
     debugPrint("Character talking!");
   }
   

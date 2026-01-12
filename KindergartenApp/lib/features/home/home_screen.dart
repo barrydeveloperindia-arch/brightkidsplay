@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:confetti/confetti.dart';
 import '../../core/reward_service.dart';
 import 'animated_character.dart';
+import 'world_map_view.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -15,50 +16,37 @@ class HomeScreen extends ConsumerWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFE0F7FA), // Light Cyan
       body: Stack(
-        alignment: Alignment.topCenter,
         children: [
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Animated Guide
-                const AnimatedCharacter(),
-                
-                const SizedBox(height: 20),
-                const Text(
-                  "Welcome to BrightKids!",
-                  style: TextStyle(
-                    fontSize: 32, 
-                    fontWeight: FontWeight.bold, 
-                    color: Colors.blueGrey,
-                    fontFamily: 'ComicNeue'
-                  ),
-                ),
-                
-                const SizedBox(height: 40),
-                
-                // Reward Test Button
-                ElevatedButton.icon(
-                  onPressed: () => rewardService.triggerSuccess(), 
-                  icon: const Icon(Icons.star),
-                  label: const Text("Complete Task!"),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange,
-                    foregroundColor: Colors.white,
-                    textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-                  ),
-                ),
-              ],
+          // 1. The Scrollable World Map
+          const WorldMapView(),
+
+          // 2. Fixed Mascot Overlay (Bottom Left)
+          const Positioned(
+            bottom: 20,
+            left: 20,
+            child: AnimatedCharacter(),
+          ),
+
+          // 3. Confetti Overlay (Foreground)
+          Align(
+            alignment: Alignment.topCenter,
+            child: ConfettiWidget(
+              confettiController: confettiController,
+              blastDirectionality: BlastDirectionality.explosive,
+              shouldLoop: false,
+              colors: const [Colors.green, Colors.blue, Colors.pink, Colors.orange, Colors.purple],
             ),
           ),
           
-          // Confetti Overlay
-          ConfettiWidget(
-            confettiController: confettiController,
-            blastDirectionality: BlastDirectionality.explosive,
-            shouldLoop: false,
-            colors: const [Colors.green, Colors.blue, Colors.pink, Colors.orange, Colors.purple],
+          // 4. Header / Settings Button placeholder
+          Positioned(
+            top: 40,
+            left: 20,
+            child: FloatingActionButton.small(
+              backgroundColor: Colors.white,
+              child: const Icon(Icons.settings, color: Colors.blueGrey),
+              onPressed: () {},
+            ),
           ),
         ],
       ),
