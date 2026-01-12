@@ -55,3 +55,22 @@ venv/
 
 # OS
 Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log
+
+# Flutter / Dart
+tools/
+.dart_tool/
+.packages
+.pub/
+build/
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+android/.gradle
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Local Config
+.vscode/
