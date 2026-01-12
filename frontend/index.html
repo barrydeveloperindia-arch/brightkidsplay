@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Command Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <i class="fa-solid fa-cube"></i>
+                <span>Antigravity</span>
+            </div>
+            <nav>
+                <a href="#" class="active"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+                <a href="#"><i class="fa-solid fa-wallet"></i> Accounts</a>
+                <a href="#"><i class="fa-solid fa-receipt"></i> Transactions</a>
+                <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+            </nav>
+            <div class="user-profile">
+                <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                <div class="user-info">
+                    <p class="name">User</p>
+                    <p class="role">Admin</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h1>Command Center</h1>
+                <div class="actions">
+                    <div class="mode-toggle">
+                        <span id="mode-label">MOCK MODE</span>
+                        <label class="switch">
+                            <input type="checkbox" id="mode-switch">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <button id="refresh-btn" class="btn-icon"><i class="fa-solid fa-rotate-right"></i></button>
+                    <button class="btn-primary" onclick="initiateConsent()">+ Add Bank</button>
+                </div>
+            </header>
+
+            <!-- KPI Cards -->
+            <section class="kpi-grid">
+                <div class="card kpi-card highlight">
+                    <div class="icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+                    <div class="info">
+                        <h3>Net Worth</h3>
+                        <h2 id="net-worth-display">₹ --</h2>
+                    </div>
+                </div>
+                <div class="card kpi-card">
+                    <div class="icon"><i class="fa-solid fa-building-columns"></i></div>
+                    <div class="info">
+                        <h3>Accounts Connected</h3>
+                        <h2 id="account-count-display">--</h2>
+                    </div>
+                </div>
+                <div class="card kpi-card">
+                    <div class="icon"><i class="fa-solid fa-coins"></i></div>
+                    <div class="info">
+                        <h3>Total Assets</h3>
+                        <h2 id="assets-display">₹ --</h2>
+                    </div>
+                </div>
+            </section>
+
+            <div class="dashboard-grid">
+                <!-- Charts -->
+                <div class="card chart-card">
+                    <h3>Portfolio Breakdown</h3>
+                    <div class="chart-container">
+                        <canvas id="portfolioChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Accounts List -->
+                <div class="card accounts-card">
+                    <h3>Your Accounts</h3>
+                    <div class="accounts-list" id="accounts-list">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Recent Transactions -->
+                <div class="card transactions-card">
+                    <h3>Recent Activity</h3>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody id="txns-table-body">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

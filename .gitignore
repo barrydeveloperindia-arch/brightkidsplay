@@ -41,3 +41,17 @@ app-example
 # generated native folders
 /ios
 /android
+
+# Python (Remote Merge)
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Database
+*.db
+*.sqlite
+
+# OS
+Thumbs.db
