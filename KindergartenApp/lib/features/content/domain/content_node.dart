@@ -17,6 +17,7 @@ class ContentNode with _$ContentNode {
     @Default(99) int maxAge,
     @Default([]) List<String> skillTags,
     @Default(1) int version,
+    @Default({}) Map<String, dynamic> metadata, // Flexible field for Quiz/Game specific data
   }) = _ContentNode;
 
   factory ContentNode.fromJson(Map<String, dynamic> json) => _$ContentNodeFromJson(json);

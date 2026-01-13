@@ -35,9 +35,38 @@ class ContentRepository {
         title: 'Shape Sorter', 
         type: ContentType.game, 
         thumbnailUrl: 'assets/images/thumb_game.png',
-        resourceUrl: 'https://example.com/game1.zip',
+        // Fallback to Wikipedia for reliable testing as many game sites block headers
+        resourceUrl: 'https://en.m.wikipedia.org/wiki/Shape', 
         skillTags: ['Logic', 'Shapes'],
         minAge: 3,
+      ),
+      const ContentNode(
+        id: '4',
+        title: 'Animal Quiz',
+        type: ContentType.quiz,
+        thumbnailUrl: 'assets/images/thumb_quiz.png',
+        resourceUrl: '', // Not used for internal quiz
+        skillTags: ['Animals', 'Memory'],
+        minAge: 4,
+        metadata: {
+          'questions': [
+            {
+              'question': 'Which animal is big and grey?',
+              'options': ['Mouse', 'Elephant', 'Cat', 'Bird'],
+              'answer': 'Elephant'
+            },
+            {
+              'question': 'What does a dog say?',
+              'options': ['Meow', 'Moo', 'Woof', 'Quack'],
+              'answer': 'Woof'
+            },
+            {
+              'question': 'Which one flies?',
+              'options': ['Fish', 'Bird', 'Dog', 'Cow'],
+              'answer': 'Bird'
+            }
+          ]
+        }
       ),
     ];
   }

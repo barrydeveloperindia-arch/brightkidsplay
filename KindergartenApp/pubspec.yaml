@@ -1,10 +1,10 @@
 name: bright_kids
 description: A high-fidelity educational platform clone of Khan Academy Kids.
-publish_to: 'none'
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.2.0 <4.0.0'
+  sdk: ">=3.2.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -16,14 +16,15 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   supabase_flutter: ^2.6.0
-  rive: ^0.13.11
+  rive: 0.13.4
   lottie: ^3.1.2
-  audioplayers: ^6.0.0
+  audioplayers: ^5.2.1
   confetti: ^0.7.0
   video_player: ^2.9.1
-  chewie: ^1.8.1
+  chewie: 1.7.5
   url_launcher: ^6.3.0
-  webview_flutter: ^4.9.0
+  webview_flutter: 4.8.0
+  webview_flutter_web: ^0.2.2+4
 
 dev_dependencies:
   flutter_test:

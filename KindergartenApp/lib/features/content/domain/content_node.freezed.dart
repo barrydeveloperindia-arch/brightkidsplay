@@ -30,6 +30,7 @@ mixin _$ContentNode {
   int get maxAge => throw _privateConstructorUsedError;
   List<String> get skillTags => throw _privateConstructorUsedError;
   int get version => throw _privateConstructorUsedError;
+  Map<String, dynamic> get metadata => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,7 +53,8 @@ abstract class $ContentNodeCopyWith<$Res> {
       int minAge,
       int maxAge,
       List<String> skillTags,
-      int version});
+      int version,
+      Map<String, dynamic> metadata});
 }
 
 /// @nodoc
@@ -77,6 +79,7 @@ class _$ContentNodeCopyWithImpl<$Res, $Val extends ContentNode>
     Object? maxAge = null,
     Object? skillTags = null,
     Object? version = null,
+    Object? metadata = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -115,6 +118,10 @@ class _$ContentNodeCopyWithImpl<$Res, $Val extends ContentNode>
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
               as int,
+      metadata: null == metadata
+          ? _value.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -136,7 +143,8 @@ abstract class _$$ContentNodeImplCopyWith<$Res>
       int minAge,
       int maxAge,
       List<String> skillTags,
-      int version});
+      int version,
+      Map<String, dynamic> metadata});
 }
 
 /// @nodoc
@@ -159,6 +167,7 @@ class __$$ContentNodeImplCopyWithImpl<$Res>
     Object? maxAge = null,
     Object? skillTags = null,
     Object? version = null,
+    Object? metadata = null,
   }) {
     return _then(_$ContentNodeImpl(
       id: null == id
@@ -197,6 +206,10 @@ class __$$ContentNodeImplCopyWithImpl<$Res>
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
               as int,
+      metadata: null == metadata
+          ? _value._metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -213,8 +226,10 @@ class _$ContentNodeImpl implements _ContentNode {
       this.minAge = 0,
       this.maxAge = 99,
       final List<String> skillTags = const [],
-      this.version = 1})
-      : _skillTags = skillTags;
+      this.version = 1,
+      final Map<String, dynamic> metadata = const {}})
+      : _skillTags = skillTags,
+        _metadata = metadata;
 
   factory _$ContentNodeImpl.fromJson(Map<String, dynamic> json) =>
       _$$ContentNodeImplFromJson(json);
@@ -248,10 +263,18 @@ class _$ContentNodeImpl implements _ContentNode {
   @override
   @JsonKey()
   final int version;
+  final Map<String, dynamic> _metadata;
+  @override
+  @JsonKey()
+  Map<String, dynamic> get metadata {
+    if (_metadata is EqualUnmodifiableMapView) return _metadata;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_metadata);
+  }
 
   @override
   String toString() {
-    return 'ContentNode(id: $id, title: $title, type: $type, thumbnailUrl: $thumbnailUrl, resourceUrl: $resourceUrl, minAge: $minAge, maxAge: $maxAge, skillTags: $skillTags, version: $version)';
+    return 'ContentNode(id: $id, title: $title, type: $type, thumbnailUrl: $thumbnailUrl, resourceUrl: $resourceUrl, minAge: $minAge, maxAge: $maxAge, skillTags: $skillTags, version: $version, metadata: $metadata)';
   }
 
   @override
@@ -270,7 +293,8 @@ class _$ContentNodeImpl implements _ContentNode {
             (identical(other.maxAge, maxAge) || other.maxAge == maxAge) &&
             const DeepCollectionEquality()
                 .equals(other._skillTags, _skillTags) &&
-            (identical(other.version, version) || other.version == version));
+            (identical(other.version, version) || other.version == version) &&
+            const DeepCollectionEquality().equals(other._metadata, _metadata));
   }
 
   @JsonKey(ignore: true)
@@ -285,7 +309,8 @@ class _$ContentNodeImpl implements _ContentNode {
       minAge,
       maxAge,
       const DeepCollectionEquality().hash(_skillTags),
-      version);
+      version,
+      const DeepCollectionEquality().hash(_metadata));
 
   @JsonKey(ignore: true)
   @override
@@ -311,7 +336,8 @@ abstract class _ContentNode implements ContentNode {
       final int minAge,
       final int maxAge,
       final List<String> skillTags,
-      final int version}) = _$ContentNodeImpl;
+      final int version,
+      final Map<String, dynamic> metadata}) = _$ContentNodeImpl;
 
   factory _ContentNode.fromJson(Map<String, dynamic> json) =
       _$ContentNodeImpl.fromJson;
@@ -334,6 +360,8 @@ abstract class _ContentNode implements ContentNode {
   List<String> get skillTags;
   @override
   int get version;
+  @override
+  Map<String, dynamic> get metadata;
   @override
   @JsonKey(ignore: true)
   _$$ContentNodeImplCopyWith<_$ContentNodeImpl> get copyWith =>

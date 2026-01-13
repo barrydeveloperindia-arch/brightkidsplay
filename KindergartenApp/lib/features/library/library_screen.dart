@@ -58,67 +58,114 @@ class _ContentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 4,
-      shadowColor: Colors.purple.withOpacity(0.2),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+      elevation: 8, // Higher elevation for "pop"
+      shadowColor: _getColorForType(item.type).withOpacity(0.4), // Colored shadow
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+        side: BorderSide(color: _getColorForType(item.type).withOpacity(0.5), width: 2), // Colored border
+      ),
+      clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: () => context.push('/player/${item.id}'),
-        borderRadius: BorderRadius.circular(24),
+        splashColor: _getColorForType(item.type).withOpacity(0.2),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: Color(0xFFF0F4F8), 
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-                ),
-                child: ClipRRect(
-                  borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
-                  child: Image.asset(
-                    'assets/images/thumb_${item.type.name}.png', // e.g. thumb_book.png
+              flex: 3,
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Image.asset(
+                    item.thumbnailUrl, // Use item's thumb first
                     fit: BoxFit.cover,
                     errorBuilder: (ctx, err, stack) {
-                      return Icon(_getIconForType(item.type), size: 60, color: Colors.blueGrey.withOpacity(0.3));
+                      // Fallback to type-based generic image if specific thumb fails
+                      return Container(
+                        color: _getColorForType(item.type).withOpacity(0.1),
+                        child: Icon(
+                          _getIconForType(item.type),
+                          size: 64,
+                          color: _getColorForType(item.type).withOpacity(0.5),
+                        ),
+                      );
                     },
                   ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    item.title,
-                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16, fontFamily: 'ComicNeue'),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  const SizedBox(height: 6),
-                  Row(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                        decoration: BoxDecoration(
-                          color: _getColorForType(item.type).withOpacity(0.15),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(_getIconForType(item.type), size: 14, color: _getColorForType(item.type)),
-                            const SizedBox(width: 4),
-                            Text(
-                              item.type.name.toUpperCase(),
-                              style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: _getColorForType(item.type)),
-                            ),
-                          ],
-                        ),
+                  // Type Badge Overlay
+                  Positioned(
+                    top: 8,
+                    right: 8,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.9),
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(color: Colors.black12, blurRadius: 4, offset: const Offset(0, 2)),
+                        ],
                       ),
-                    ],
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(_getIconForType(item.type), size: 14, color: _getColorForType(item.type)),
+                          const SizedBox(width: 4),
+                          Text(
+                            item.type.name.toUpperCase(),
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold,
+                              color: _getColorForType(item.type),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ],
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Container(
+                color: Colors.white,
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween, // Distribute space
+                  children: [
+                    Text(
+                      item.title,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18, // Larger title
+                        fontFamily: 'ComicNeue',
+                        color: Colors.black87,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    // Skill Tags Row
+                    if (item.skillTags.isNotEmpty)
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: item.skillTags.take(2).map((tag) => Container(
+                            margin: const EdgeInsets.only(right: 4),
+                            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                            decoration: BoxDecoration(
+                              color: Colors.grey[100],
+                              borderRadius: BorderRadius.circular(4),
+                              border: Border.all(color: Colors.grey[300]!),
+                            ),
+                            child: Text(
+                              tag,
+                              style: TextStyle(fontSize: 10, color: Colors.grey[700]),
+                            ),
+                          )).toList(),
+                        ),
+                      ),
+                  ],
+                ),
               ),
             ),
           ],
@@ -129,20 +176,19 @@ class _ContentCard extends StatelessWidget {
 
   Color _getColorForType(ContentType type) {
     switch (type) {
-      case ContentType.video: return Colors.red;
-      case ContentType.book: return Colors.blue;
-      case ContentType.game: return Colors.orange;
-      case ContentType.quiz: return Colors.green;
+      case ContentType.video: return const Color(0xFFFF6B6B); // Red-ish
+      case ContentType.book: return const Color(0xFF4ECDC4); // Teal-ish
+      case ContentType.game: return const Color(0xFFFFD93D); // Yellow-ish
+      case ContentType.quiz: return const Color(0xFF6C5CE7); // Purple-ish
     }
   }
 
   IconData _getIconForType(ContentType type) {
     switch (type) {
-      case ContentType.video: return Icons.play_circle_fill;
-      case ContentType.book: return Icons.book;
-      case ContentType.game: return Icons.videogame_asset;
-      case ContentType.quiz: return Icons.question_answer;
-      default: return Icons.article; // Fallback
+      case ContentType.video: return Icons.play_circle_filled_rounded;
+      case ContentType.book: return Icons.menu_book_rounded;
+      case ContentType.game: return Icons.gamepad_rounded;
+      case ContentType.quiz: return Icons.help_outline_rounded;
     }
   }
 }

@@ -23,10 +23,7 @@ class _WebviewPlayerWidgetState extends State<WebviewPlayerWidget> {
     if (!kIsWeb) {
       controller.setJavaScriptMode(JavaScriptMode.unrestricted);
       controller.setBackgroundColor(const Color(0x00000000));
-    }
-    
-    controller
-      ..setNavigationDelegate(
+      controller.setNavigationDelegate(
         NavigationDelegate(
           onProgress: (int progress) {
             // Update loading bar.
@@ -41,8 +38,19 @@ class _WebviewPlayerWidgetState extends State<WebviewPlayerWidget> {
           },
           onWebResourceError: (WebResourceError error) {},
         ),
-      )
-      ..loadRequest(Uri.parse(widget.url));
+      );
+    } else {
+      // On Web, minimize initial loading state as NavigationDelegate is limited
+      Future.delayed(const Duration(milliseconds: 1000), () {
+        if (mounted) {
+          setState(() {
+            _isLoading = false;
+          });
+        }
+      });
+    }
+
+    controller.loadRequest(Uri.parse(widget.url));
       
     _controller = controller;
   }

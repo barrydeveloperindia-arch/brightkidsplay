@@ -20,6 +20,7 @@ _$ContentNodeImpl _$$ContentNodeImplFromJson(Map<String, dynamic> json) =>
               .toList() ??
           const [],
       version: (json['version'] as num?)?.toInt() ?? 1,
+      metadata: json['metadata'] as Map<String, dynamic>? ?? const {},
     );
 
 Map<String, dynamic> _$$ContentNodeImplToJson(_$ContentNodeImpl instance) =>
@@ -33,6 +34,7 @@ Map<String, dynamic> _$$ContentNodeImplToJson(_$ContentNodeImpl instance) =>
       'maxAge': instance.maxAge,
       'skillTags': instance.skillTags,
       'version': instance.version,
+      'metadata': instance.metadata,
     };
 
 const _$ContentTypeEnumMap = {

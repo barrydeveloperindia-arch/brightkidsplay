@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+// Import for iOS specific params if needed, though on Web/Windows we might not hit that branch.
+// We'll keep it simple for now and just rely on the main package.
+import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
 class WebviewPlayerWidget extends StatefulWidget {
   final String url;
@@ -16,7 +19,17 @@ class _WebviewPlayerWidgetState extends State<WebviewPlayerWidget> {
   @override
   void initState() {
     super.initState();
-    _controller = WebViewController()
+    late final PlatformWebViewControllerCreationParams params;
+    if (WebViewPlatform.instance is WebKitWebViewPlatform) {
+      params = WebKitWebViewControllerCreationParams(
+        allowsInlineMediaPlayback: true,
+        mediaTypesRequiringUserAction: const <PlaybackTier>{},
+      );
+    } else {
+      params = const PlatformWebViewControllerCreationParams();
+    }
+
+    _controller = WebViewController.fromPlatformCreationParams(params)
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setBackgroundColor(const Color(0x00000000))
       ..setNavigationDelegate(

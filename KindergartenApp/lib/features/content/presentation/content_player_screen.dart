@@ -5,6 +5,7 @@ import 'package:bright_kids/features/content/data/mock_content_repository.dart';
 import 'package:bright_kids/features/content/domain/content_node.dart';
 import 'package:bright_kids/features/content/presentation/widgets/video_player_widget.dart';
 import 'package:bright_kids/features/content/presentation/widgets/webview_player_widget.dart';
+import 'package:bright_kids/features/player/widgets/quiz_player_widget.dart';
 
 class ContentPlayerScreen extends ConsumerWidget {
   final String contentId;
@@ -78,8 +79,7 @@ class ContentPlayerScreen extends ConsumerWidget {
       case ContentType.book:
         return WebviewPlayerWidget(url: item.resourceUrl);
       case ContentType.quiz:
-        return const Center(
-            child: Text("Quiz Player not implemented yet", style: TextStyle(color: Colors.white)));
+        return QuizPlayerWidget(content: item);
       default:
         return Center(
             child: Text("Unsupported content type: ${item.type}", style: TextStyle(color: Colors.white)));
