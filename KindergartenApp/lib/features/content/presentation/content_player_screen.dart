@@ -6,6 +6,9 @@ import 'package:bright_kids/features/content/domain/content_node.dart';
 import 'package:bright_kids/features/content/presentation/widgets/video_player_widget.dart';
 import 'package:bright_kids/features/content/presentation/widgets/webview_player_widget.dart';
 import 'package:bright_kids/features/player/widgets/quiz_player_widget.dart';
+import 'package:bright_kids/features/player/widgets/audio_player_widget.dart';
+import 'package:confetti/confetti.dart';
+import 'package:bright_kids/core/reward_service.dart';
 
 class ContentPlayerScreen extends ConsumerWidget {
   final String contentId;
@@ -65,6 +68,16 @@ class ContentPlayerScreen extends ConsumerWidget {
                 ),
               ),
             ),
+            // Confetti Overlay
+            Align(
+              alignment: Alignment.topCenter,
+              child: ConfettiWidget(
+                confettiController: ref.watch(confettiControllerProvider),
+                blastDirectionality: BlastDirectionality.explosive,
+                shouldLoop: false,
+                colors: const [Colors.green, Colors.blue, Colors.pink, Colors.orange, Colors.purple],
+              ),
+            ),
           ],
         ),
       ),
@@ -80,6 +93,8 @@ class ContentPlayerScreen extends ConsumerWidget {
         return WebviewPlayerWidget(url: item.resourceUrl);
       case ContentType.quiz:
         return QuizPlayerWidget(content: item);
+      case ContentType.music:
+        return AudioPlayerWidget(content: item);
       default:
         return Center(
             child: Text("Unsupported content type: ${item.type}", style: TextStyle(color: Colors.white)));

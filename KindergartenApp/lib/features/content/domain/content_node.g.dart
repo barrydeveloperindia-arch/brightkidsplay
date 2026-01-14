@@ -42,4 +42,5 @@ const _$ContentTypeEnumMap = {
   ContentType.book: 'book',
   ContentType.game: 'game',
   ContentType.quiz: 'quiz',
+  ContentType.music: 'music',
 };

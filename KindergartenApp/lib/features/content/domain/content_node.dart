@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'content_node.freezed.dart';
 part 'content_node.g.dart';
 
-enum ContentType { video, book, game, quiz }
+enum ContentType { video, book, game, quiz, music }
 
 @freezed
 class ContentNode with _$ContentNode {

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:confetti/confetti.dart';
+import 'package:bright_kids/core/reward_service.dart';
 
 class NavigationShell extends StatelessWidget {
   final Widget child;
@@ -15,7 +18,24 @@ class NavigationShell extends StatelessWidget {
     }
 
     return Scaffold(
-      body: child,
+      body: Stack(
+        children: [
+          child,
+          Align(
+            alignment: Alignment.topCenter,
+            child: Consumer(
+              builder: (context, ref, _) {
+                 return ConfettiWidget(
+                  confettiController: ref.watch(confettiControllerProvider),
+                  blastDirectionality: BlastDirectionality.explosive,
+                  shouldLoop: false,
+                  colors: const [Colors.green, Colors.blue, Colors.pink, Colors.orange, Colors.purple],
+                );
+              }
+            ),
+          ),
+        ],
+      ),
       // Persistent Bottom Bar for immersive Kid navigation
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,

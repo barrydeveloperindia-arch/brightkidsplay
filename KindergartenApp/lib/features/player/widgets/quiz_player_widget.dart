@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:bright_kids/features/content/domain/content_node.dart';
+import 'package:bright_kids/core/reward_service.dart';
 import 'package:go_router/go_router.dart';
 
-class QuizPlayerWidget extends StatefulWidget {
+class QuizPlayerWidget extends ConsumerStatefulWidget {
   final ContentNode content;
 
   const QuizPlayerWidget({super.key, required this.content});
 
   @override
-  State<QuizPlayerWidget> createState() => _QuizPlayerWidgetState();
+  ConsumerState<QuizPlayerWidget> createState() => _QuizPlayerWidgetState();
 }
 
-class _QuizPlayerWidgetState extends State<QuizPlayerWidget> {
+class _QuizPlayerWidgetState extends ConsumerState<QuizPlayerWidget> {
   int _currentIndex = 0;
   List<dynamic> _questions = [];
   bool _answered = false;
@@ -52,11 +54,15 @@ class _QuizPlayerWidgetState extends State<QuizPlayerWidget> {
   }
 
   void _showCompletionDialog() {
+    // Trigger Reward!
+    if (_score > 0) { // Only reward if they got at least one right? or simple participation? Left simple for now.
+       ref.read(rewardServiceProvider).triggerSuccess();
+    }
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (context) => AlertDialog(
-        title: const Text("Great Job!", style: TextStyle(fontFamily: 'ComicNeue', fontWeight: FontWeight.bold)),
+        title: const Text("Great Job!", style: TextStyle(fontWeight: FontWeight.bold)),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -121,7 +127,7 @@ class _QuizPlayerWidgetState extends State<QuizPlayerWidget> {
                 style: const TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'ComicNeue',
+                  // fontFamily: 'ComicNeue',
                   color: Colors.black87,
                 ),
                 textAlign: TextAlign.center,

@@ -2,7 +2,10 @@ import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-class VideoPlayerWidget extends StatefulWidget {
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:bright_kids/core/reward_service.dart';
+
+class VideoPlayerWidget extends ConsumerStatefulWidget {
   final String videoUrl;
   final bool autoPlay;
   final bool looping;
@@ -15,10 +18,10 @@ class VideoPlayerWidget extends StatefulWidget {
   });
 
   @override
-  State<VideoPlayerWidget> createState() => _VideoPlayerWidgetState();
+  ConsumerState<VideoPlayerWidget> createState() => _VideoPlayerWidgetState();
 }
 
-class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
+class _VideoPlayerWidgetState extends ConsumerState<VideoPlayerWidget> {
   late VideoPlayerController _videoPlayerController;
   ChewieController? _chewieController;
   bool _isLoading = true;
@@ -34,6 +37,15 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
     try {
       _videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(widget.videoUrl));
       await _videoPlayerController.initialize();
+      
+      _videoPlayerController.addListener(() {
+        if (_videoPlayerController.value.isCompleted) {
+           // Basic debounce/check could be added here if needed, but for confetti it's okay if it triggers once at end.
+           // However, seek to end might trigger it. 
+           // Let's just trigger it.
+           ref.read(rewardServiceProvider).triggerSuccess();
+        }
+      });
 
       _chewieController = ChewieController(
         videoPlayerController: _videoPlayerController,

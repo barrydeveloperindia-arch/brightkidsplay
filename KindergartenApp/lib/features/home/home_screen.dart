@@ -14,8 +14,20 @@ class HomeScreen extends ConsumerWidget {
     final confettiController = ref.watch(confettiControllerProvider);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFE0F7FA), // Light Cyan
-      body: Stack(
+      backgroundColor: Colors.transparent, // Background handled by container or world map
+      extendBodyBehindAppBar: true,
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color(0xFF2E1A47), // Deep Space
+                Color(0xFF4A148C), // Purple
+              ],
+          ),
+        ),
+        child: Stack(
         children: [
           // 1. The Scrollable World Map
           const WorldMapView(),
@@ -50,6 +62,6 @@ class HomeScreen extends ConsumerWidget {
           ),
         ],
       ),
-    );
+    ));
   }
 }

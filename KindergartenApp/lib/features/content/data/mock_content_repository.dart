@@ -66,7 +66,25 @@ class ContentRepository {
               'answer': 'Bird'
             }
           ]
-        }
+        },
+      ),
+      const ContentNode(
+        id: '5', 
+        title: 'Sleepy Deep Space', 
+        type: ContentType.music, 
+        thumbnailUrl: 'assets/images/thumb_music.png',
+        resourceUrl: 'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112762.mp3', // Sample Lofi
+        skillTags: ['Relaxation', 'Music'],
+        minAge: 0,
+      ),
+      const ContentNode(
+        id: '6', 
+        title: 'Happy Frog Dance', 
+        type: ContentType.music, 
+        thumbnailUrl: 'assets/images/thumb_frog.png',
+        resourceUrl: 'https://cdn.pixabay.com/download/audio/2022/10/25/audio_5103c8b417.mp3?filename=fun-life-115865.mp3',
+        skillTags: ['Dance', 'Energy'],
+        minAge: 2,
       ),
     ];
   }
