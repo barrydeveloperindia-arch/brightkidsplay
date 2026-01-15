@@ -20,7 +20,11 @@ class ParentDashboardScreen extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.settings_outlined, color: Colors.black),
-            onPressed: () {},
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text("Advanced Settings Coming Soon!"), duration: Duration(seconds: 1)),
+              );
+            },
           )
         ],
       ),
@@ -40,6 +44,38 @@ class ParentDashboardScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
+              
+              // Adventure Map Banner
+              GestureDetector(
+                onTap: () => context.push('/game-map'),
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(colors: [Color(0xFF42A5F5), Color(0xFF1E88E5)]),
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(color: Colors.blue.withOpacity(0.3), blurRadius: 10, offset: const Offset(0, 5)),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.map, color: Colors.white, size: 40),
+                      const SizedBox(width: 16),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text("Adventure Map", style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
+                          Text("Play native games!", style: TextStyle(color: Colors.white70)),
+                        ],
+                      ),
+                      const Spacer(),
+                      const Icon(Icons.arrow_forward_ios, color: Colors.white),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 24),
               
               // Stats Cards
               Row(
@@ -81,11 +117,11 @@ class ParentDashboardScreen extends StatelessWidget {
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                 child: Column(
                   children: [
-                    _buildSwitchTile("Background Music", true, Icons.music_note),
+                    _buildSwitchTile(context, "Background Music", true, Icons.music_note),
                     const Divider(height: 1),
-                    _buildSwitchTile("Screen Time Limit", false, Icons.screen_lock_portrait),
+                    _buildSwitchTile(context, "Screen Time Limit", false, Icons.screen_lock_portrait),
                     const Divider(height: 1),
-                    _buildSwitchTile("Kid Profile Editing", true, Icons.person),
+                    _buildSwitchTile(context, "Kid Profile Editing", true, Icons.person),
                   ],
                 ),
               ),
@@ -145,10 +181,14 @@ class ParentDashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSwitchTile(String title, bool value, IconData icon) {
+  Widget _buildSwitchTile(BuildContext context, String title, bool value, IconData icon) {
     return SwitchListTile.adaptive(
       value: value,
-      onChanged: (v) {},
+      onChanged: (v) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("$title feature coming soon!"), duration: const Duration(seconds: 1)),
+        );
+      },
       title: Text(title, style: const TextStyle(fontWeight: FontWeight.w600)),
       secondary: Icon(icon, color: Colors.grey[700]),
       contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),

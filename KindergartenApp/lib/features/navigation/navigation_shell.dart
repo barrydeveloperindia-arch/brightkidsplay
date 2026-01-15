@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:confetti/confetti.dart';
 import 'package:bright_kids/core/reward_service.dart';
+import 'package:bright_kids/features/dashboard/widgets/parent_gate.dart';
 
 class NavigationShell extends StatelessWidget {
   final Widget child;
@@ -69,7 +70,12 @@ class NavigationShell extends StatelessWidget {
         mini: true,
         backgroundColor: Colors.white,
         child: const Icon(Icons.lock_outline, color: Colors.grey),
-        onPressed: () => context.push('/parent'),
+        onPressed: () {
+          // Verify with Parent Gate before entering dashboard
+          showParentGate(context, () {
+             context.push('/parent');
+          });
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
     );

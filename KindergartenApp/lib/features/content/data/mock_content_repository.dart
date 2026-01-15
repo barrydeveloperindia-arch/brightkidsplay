@@ -40,6 +40,69 @@ class ContentRepository {
         skillTags: ['Logic', 'Shapes'],
         minAge: 3,
       ),
+      // NATIVE GAMES
+      const ContentNode(
+        id: 'shape_matcher',
+        title: 'Shape Matcher',
+        type: ContentType.game,
+        thumbnailUrl: 'assets/images/thumb_game.png',
+        resourceUrl: 'native://shape_matcher',
+        skillTags: ['Logic', 'DragDrop'],
+        minAge: 3,
+      ),
+      const ContentNode(
+        id: 'color_sorter',
+        title: 'Color Sorter',
+        type: ContentType.game,
+        thumbnailUrl: 'assets/images/thumb_game.png',
+        resourceUrl: 'native://color_sorter',
+        skillTags: ['Logic', 'Colors'],
+        minAge: 3,
+      ),
+      const ContentNode(
+        id: 'memory_flip',
+        title: 'Memory Flip',
+        type: ContentType.game,
+        thumbnailUrl: 'assets/images/thumb_game.png',
+        resourceUrl: 'native://memory_flip',
+        skillTags: ['Memory', 'Logic'],
+        minAge: 4,
+      ),
+      const ContentNode(
+        id: 'animal_sounds',
+        title: 'Animal Sounds',
+        type: ContentType.game,
+        thumbnailUrl: 'assets/images/thumb_music.png',
+        resourceUrl: 'native://animal_sounds',
+        skillTags: ['Audio', 'Animals'],
+        minAge: 3,
+      ),
+      const ContentNode(
+        id: 'number_trace',
+        title: 'Number Trace',
+        type: ContentType.game,
+        thumbnailUrl: 'assets/images/thumb_math.png',
+        resourceUrl: 'native://number_trace',
+        skillTags: ['Math', 'Writing'],
+        minAge: 4,
+      ),
+      // PLANCEHOLDERS FOR PHASE 2 & 3
+      // We map these to a generic 'coming_soon' or just let them error for now 
+      // but ideally we map them to a GenericGame if config exists. 
+      // For now, let's just register them so they don't 404.
+      for (var id in [
+        'balloon_pop', 'letter_catch', 'pattern_complete', 'big_small', 'shadow_match',
+        'math_garden', 'rhyme_time', 'clock_wise', 'emotion_explorer', 'maze_runner'
+      ])
+        ContentNode(
+          id: id,
+          title: id.replaceAll('_', ' ').toUpperCase(),
+          type: ContentType.game,
+          thumbnailUrl: 'assets/images/thumb_game.png',
+          resourceUrl: 'native://$id',
+          skillTags: ['Coming Soon'],
+          minAge: 3,
+        ),
       const ContentNode(
         id: '4',
         title: 'Animal Quiz',

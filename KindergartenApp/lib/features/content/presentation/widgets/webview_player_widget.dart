@@ -40,8 +40,8 @@ class _WebviewPlayerWidgetState extends State<WebviewPlayerWidget> {
         ),
       );
     } else {
-      // On Web, minimize initial loading state as NavigationDelegate is limited
-      Future.delayed(const Duration(milliseconds: 1000), () {
+      // On Web, use delay for now to avoid compilation/runtime issues with partial implementation
+      Future.delayed(const Duration(seconds: 1), () {
         if (mounted) {
           setState(() {
             _isLoading = false;

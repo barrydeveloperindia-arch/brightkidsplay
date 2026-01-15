@@ -6,6 +6,7 @@ import '../features/home/home_screen.dart';
 import '../features/dashboard/parent_dashboard_screen.dart';
 import '../features/library/library_screen.dart';
 import '../features/content/presentation/content_player_screen.dart';
+import '../features/games/presentation/pages/games_map_screen.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
@@ -39,6 +40,12 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/parent',
         builder: (context, state) => const ParentDashboardScreen(),
+      ),
+
+      // Games Map (Adventure Mode)
+      GoRoute(
+        path: '/game-map',
+        builder: (context, state) => const GamesMapScreen(),
       ),
     ],
   );

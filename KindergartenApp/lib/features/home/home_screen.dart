@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:confetti/confetti.dart';
 import '../../core/reward_service.dart';
 import 'animated_character.dart';
@@ -57,7 +58,7 @@ class HomeScreen extends ConsumerWidget {
             child: FloatingActionButton.small(
               backgroundColor: Colors.white,
               child: const Icon(Icons.settings, color: Colors.blueGrey),
-              onPressed: () {},
+              onPressed: () => GoRouter.of(context).push('/parent'),
             ),
           ),
         ],

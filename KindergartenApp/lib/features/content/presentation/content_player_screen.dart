@@ -9,6 +9,11 @@ import 'package:bright_kids/features/player/widgets/quiz_player_widget.dart';
 import 'package:bright_kids/features/player/widgets/audio_player_widget.dart';
 import 'package:confetti/confetti.dart';
 import 'package:bright_kids/core/reward_service.dart';
+import 'package:bright_kids/features/games/data/level_service.dart';
+import 'package:bright_kids/features/games/presentation/pages/shape_matcher_game.dart';
+import 'package:bright_kids/features/games/presentation/pages/color_sorter_game.dart';
+import 'package:bright_kids/features/games/presentation/pages/memory_flip_game.dart';
+import 'package:bright_kids/features/games/presentation/pages/animal_sounds_game.dart';
 
 class ContentPlayerScreen extends ConsumerWidget {
   final String contentId;
@@ -53,7 +58,7 @@ class ContentPlayerScreen extends ConsumerWidget {
                    return const Center(child: Text("Content not found", style: TextStyle(color: Colors.white)));
                 }
 
-                return _buildPlayer(item);
+                return _buildPlayer(item, ref);
               },
             ),
             // Close button overlay
@@ -84,7 +89,11 @@ class ContentPlayerScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildPlayer(ContentNode item) {
+  Widget _buildPlayer(ContentNode item, WidgetRef ref) {
+    if (item.resourceUrl.startsWith('native://')) {
+      return _buildNativeGame(item, ref);
+    }
+
     switch (item.type) {
       case ContentType.video:
         return VideoPlayerWidget(videoUrl: item.resourceUrl);
@@ -98,6 +107,30 @@ class ContentPlayerScreen extends ConsumerWidget {
       default:
         return Center(
             child: Text("Unsupported content type: ${item.type}", style: TextStyle(color: Colors.white)));
+    }
+  }
+
+  Widget _buildNativeGame(ContentNode item, WidgetRef ref) {
+    final gameId = item.resourceUrl.replaceAll('native://', '');
+    final games = ref.read(levelServiceProvider);
+    
+    try {
+      final gameData = games.firstWhere((g) => g.id == gameId);
+      
+      switch (gameId) {
+        case 'shape_matcher':
+          return ShapeMatcherGame(gameData: gameData);
+        case 'color_sorter':
+          return ColorSorterGame(gameData: gameData);
+        case 'memory_flip':
+          return MemoryFlipGame(gameData: gameData);
+        case 'animal_sounds':
+          return AnimalSoundsGame(gameData: gameData);
+        default:
+          return Center(child: Text("Game not implemented: $gameId", style: const TextStyle(color: Colors.white)));
+      }
+    } catch (e) {
+      return Center(child: Text("Game Configuration Not Found: $gameId", style: const TextStyle(color: Colors.white)));
     }
   }
 }
