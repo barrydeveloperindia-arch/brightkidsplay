@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  # 1. Database (The Digital Thread)
+  db:
+    image: postgres:15-alpine
+    container_name: englabs_postgres
+    environment:
+      POSTGRES_USER: mes_admin
+      POSTGRES_PASSWORD: secure_password
+      POSTGRES_DB: mes_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  # 2. Backend API (FastAPI)
+  api:
+    build: .
+    container_name: englabs_backend
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://mes_admin:secure_password@db/mes_db
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/app/src # Hot reload for dev
+
+  # 3. Frontend (Node/Vite)
+  # Assuming you have a Dockerfile in src/frontend or use a generic node image
+  frontend:
+    image: node:18-alpine
+    container_name: englabs_frontend
+    working_dir: /app
+    volumes:
+      - ./src/frontend:/app
+    command: sh -c "npm install && npm run dev -- --host"
+    ports:
+      - "5173:5173"
+    depends_on:
+      - api
+
+volumes:
+  postgres_data:
