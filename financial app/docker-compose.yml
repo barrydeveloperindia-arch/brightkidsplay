@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  # Database Service: PostgreSQL + TimescaleDB
+  db:
+    image: timescale/timescaledb:latest-pg14
+    container_name: financial_db
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: financial_app
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ../../packages/database/schema.sql:/docker-entrypoint-initdb.d/init.sql
+
+  # Backend Service: Python FastAPI
+  backend:
+    build:
+      context: ./apps/backend
+      dockerfile: Dockerfile
+    container_name: financial_backend
+    restart: always
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://admin:password@db:5432/financial_app
+      AWS_REGION: ap-south-1 # Hardcoded for Data Residency
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./apps/backend:/app
+
+  # Web Service: Next.js
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    container_name: financial_web
+    restart: always
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/web:/app
+      - /app/node_modules
+
+volumes:
+  postgres_data:

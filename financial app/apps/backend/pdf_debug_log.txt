@@ -1,0 +1,129 @@
+--- Debugging HDFC ---
+File: BilledStatements_4705_23-11-25_16.20.pdf
+--- RAW TEXT START ---
+DUPLICATE Tata Neu Plus HDFC Bank Credit Card Statement
+HSN Code: 997113 HDFC Bank Credit Cards GSTIN: 33AAACH2702H2Z6
+BHARAT ANAND Credit Card No. 652925XXXXXX4705
+330 SECTOR 4 MANSA DEVI COMPLEX Alternate Account Number 0001010430012714700
+PANCHKULA
+Statement Date 01 Oct, 2025
+PANCHKULA 134114 HAR
+Billing Period 02 Sep, 2025 - 01 Oct, 2025
+Email : bharata@englabs.co.uk
+To update personal details : Change of Address: click here | Change of email-id: click here | Change of Mobile number: click here
+To update any other personal details, please write a letter to : The Manager, HDFC Bank Cards Division, Door No 94 SP, Estate Bus Stand, Wavin Main Road, Mogappair West, Chennai - 600058
+PAYMENTS/CREDITS PURCHASES/DEBIT
+PREVIOUS STATEMENT DUES FINANCE CHARGES TOTAL AMOUNT DUE
+RECEIVED (Current Billing Cycle)
+_ C0.00
+C47,650.20 C47,650.00 + C0.00 + C0.00 =
+TOTAL CREDIT LIMIT
+(Including Cash) AVAILABLE CREDIT LIMIT AVAILABLE CASH LIMIT MINIMUM DUE DUE DATE
+C0.00 Nil
+C1,00,000 C1,00,000 C40,000
+Past Dues OVER LIMIT 3 MONTHS + 2 MONTHS 1 MONTH CURRENT DUES MINIMUM DUES
+(if any) C0.00 C0.00 C0.00 C0.00 C0.00 C0.00
+Benefits on your card
+IMPORTANT INFORMATION
+1. MITC - MINIMUM AMOUNT DUE(MAD) CALCULATION ON YOUR HDFC BANK CREDIT CARD REVISEDWEF JUNE 2025 STMT REF MITC FOR
+DETAILS
+2. BANK WILL REPORT YOU AS DEFAULTER TO CREDIT AGENCIES IF YOU MISS PAYMENT FOR MINIMUM AMOUNT BY 3 DAYS FROM THE
+DUE DATE
+3. W.E.F 10JUN25, SPEND RS.50,000 OR MORE IN A CALENDAR QUARTER TO AVAIL DOMESTIC AIRPORT LOUNGE BENEFIT VIA VOUCHER.
+T&CS
+Your Card Control Setting As on : 01 Oct, 2025
+Domestic Transaction International Transaction
+Online POS Tap & Pay Online POS Tap & Pay MODIFY ON MyCards
+ENABLED ENABLED ENABLED DISABLED DISABLED DISABLED Card Control Set Pin
+Domestic Transactions
+DATE & TIME TRANSACTION DESCRIPTION Base NeuCoins* AMOUNT PI
+BHARAT ANAND
+BPPY CC PAYMENT DP015256082843ByASb (Ref#
+13/09/2025| 08:28 + C 7,650.00 l
+ST252570083000010087606)
+BPPY CC PAYMENT DP015258211959sBFzi (Ref#
+15
+--- RAW TEXT END ---
+
+==================================================
+
+--- Debugging SBI ---
+File: SBI Card Statement_0017_25-10-2025.pdf
+--- RAW TEXT START ---
+GSTIN of SBI Card : 06AAECS5981K1ZV Stmt/Debit Note/Credit Note/Tax Invoice (DUPLICATE FOR SUPPLIER)
+BHARAT ANAND
+Credit Card Number
+XXXX XXXX XXXX XX17
+*Total Amount Due ( ` )
+4,10,196.00
+PLACE OF SUPPLY : HAR/6/HARYANA
+**Minimum Amount Due( ` )
+STMT No. : A25102381716
+CKYC No. : O50045652784173 8,204.00
+Pay Now
+Credit Limit ( ` ) (including cash) Cash Limit( ` ) (as part of credit limit) Statement Date
+4,30,000.00 1,29,000.00 25 Oct 2025
+Available Credit Limit ( ` ) Available Cash Limit ( ` ) Payment Due Date
+19,803.72 19,803.72 14 Nov 2025
+ACCOUNT SUMMARY
+Additions
+Payments,
+Previous Balance Reversals & other Purchases & Other Fee, Taxes & Total Outstanding
+( ` ) Credits ( ` ) Debits ( ` ) Interest Charges( ` ) ( ` )
+3,11,533.44 3,23,533.44 4,15,111.52 7,084.76 4,10,196.00
+Redeemed/Expired/
+Previous Balance Earned Forfeited Closing Balance Points Expiry Details
+0 4976 0 4976 NONE
+Date Transaction Details Amount ( ` )
+for Statement Period: 26 Sep 25 to 25 Oct 25
+07 Oct 25 BT PROCESSING FEE (EXCL TAX 288.00) 1,600.00 D
+13 Oct 25 PAYMENT RECEIVED 000BD015286BAJAAACPCBG3 1,00,000.00 C
+13 Oct 25 PAYMENT RECEIVED 000BD015286BAJAAACPM5HP 1,00,000.00 C
+13 Oct 25 PAYMENT RECEIVED 000DP015286203839kKSRNR 1,00,000.00 C
+15 Oct 25 BT PROCESSING FEE (EXCL TAX 716.46) 3,980.30 D
+16 Oct 25 PAYMENT DISHONOUR FEE 500.00 D
+16 Oct 25 PAYMENT RECEIVED 000BD015289BAJAAACR2IDP 12,000.00 C
+15 Oct 25 DIRECT DEBIT PAYMENT(ACH) 11,533.44 C
+15 Oct 25 INSUFFICIENT FUNDS 11,533.44 D
+CGST DB @ 09.00% 502.23 D
+SGST DB @ 09.00% 502.23 D
+TRANSACTIONS FOR BHARAT ANAND
+07 Oct 25 BT FROM EXP 051225 80,000.00 D
+13 Oct 25 SPAID ESOLUTIONS Ajmer IN (Pay in EMIs) 22,385.00 D
+13 Oct 25 SPAID ESOLUTIONS Ajmer IN (Pay in EMIs) 48,840.00 D
+15 Oct 25 BT FROM EXP 131225 1,99,015.00 D
+15 Oct 25 SPAID ESOLUTIONS Ajmer IN (Pay in EMIs) 12,210.00 D
+17 Oct 25 FCAP TECHNOLOGIES PRIV MUMBAI IN (Pay in EMIs) 41,128.08 D
+Transactions highlighted in grey color, if any, do not form part of Purchases & Other Debits; #Tra
+--- RAW TEXT END ---
+
+==================================================
+
+--- Debugging ICICI ---
+File: 13Aug'25-12Sept'251763898402753.pdf
+--- RAW TEXT START ---
+CREDIT CARD STATEMENT
+(cid:106)(cid:13)(cid:10)(cid:21)(cid:26)(cid:101)(cid:64)(cid:18)(cid:57)(cid:107)
+12092025_1
+MR Bharat Anand Download the iMobile Pay app to -
+ENGLABS.INDIA.PVT.LTD View statement instantly
+1021.1022.2nd.Floor.Disha Block/unblock ATM withdrawal, online transactions &
+Arcade.It.Park.Road..MDC.Sector.4.Panchk international transactions in a single click
+Near ivy hospital SMS iMobile to 5676766 to get the download link or give a missed call on 9222299998
+to assistance on call.
+HARYANA, PANCHKULA 134114
+Ace your Digital Banking, with iPlay videos
+Scan the OR Code, to know about the Credit Card services,
+on ICICI Bank’s iMobile Pay.
+Scan to watch iPlay video T&C Apply
+SSTTAATTEEMMEENNTT DDAATTEE All communications are being sent to your registered e-mail ID and mobile number
+September 12, 2025
+l To update email ID and registered mailing address, visit www.icicibank.com > Login > Customer Service >
+Service Requests > Credit Card > Request for address change or visit the nearest ICICI Bank branch
+PPAAYYMMEENNTT DDUUEE DDAATTEE l To update mobile number, visit the nearest branch (cid:235)(cid:173)(cid:201)(cid:201)(cid:201)(cid:173)(cid:235)(cid:108)(cid:187)(cid:190)(cid:135)(cid:218)(cid:125)(cid:194)(cid:113)(cid:114)(cid:223)(cid:132)(cid:223)(cid:118)(cid:139)(cid:218)(cid:159)(cid:228)(cid:185)(cid:208)(cid:159)(cid:130)(cid:167)(cid:184)(cid:123)(cid:110)(cid:185)(cid:108)(cid:235)(cid:173)(cid:201)(cid:201)(cid:201)(cid:173)(cid:235)
+(cid:147)(cid:119)(cid:134)(cid:137)(cid:161)(cid:133)(cid:150)(cid:158)(cid:215)(cid:146)(cid:121)(cid:149)(cid:127)(cid:156)(cid:135)(cid:172)(cid:234)(cid:119)(cid:214)(cid:211)(cid:126)(cid:202)(cid:200)(cid:234)(cid:165)(cid:129)(cid:199)(cid:202)(cid:189)(cid:235)(cid:206)(cid:207)(cid:118)(cid:167)(cid:156)(cid:144)(cid:160)(cid:152)(cid:125)(cid:121)(cid:154)
+September 30, 2025 l Click here to access your Credit Card One View Statement Scan to Pay using (cid:121)(cid:234)(cid:110)(cid:189)(cid:224)(cid:14
+--- RAW TEXT END ---
+
+==================================================
+

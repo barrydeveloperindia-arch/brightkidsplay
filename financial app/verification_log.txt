@@ -1,0 +1,149 @@
+running real data verification...
+
+Scanning directory: C:\Users\abrbh\Documents\Antigravity\financial app\statements
+Found 21 PDF files.
+
+--- Processing: AMERICAN EXPRESS PLATINUM 41009/2025-10-05.pdf ---
+✅ Parser Detected: IciciStatementParser
+✅ Parsed 0 transactions
+⚠️  No transactions found via regex.
+
+
+--- Processing: AMERICAN EXPRESS PLATINUM 41009/2025-11-05.pdf ---
+✅ Parser Detected: IciciStatementParser
+✅ Parsed 0 transactions
+⚠️  No transactions found via regex.
+
+
+--- Processing: DECEMBER/CC_Statement_2025_12_28 (1).pdf ---
+❌ Error extracting text from C:\Users\abrbh\Documents\Antigravity\financial app\statements\AXIS MAGNUS 5629\DECEMBER\CC_Statement_2025_12_28 (1).pdf: PDFPasswordIncorrect()
+⚠️  Warning: No text extracted (scanned image?). Skipping.
+
+--- Processing: NOVEMBER/CC_Statement_2025_11_23 (2).pdf ---
+❌ Error extracting text from C:\Users\abrbh\Documents\Antigravity\financial app\statements\AXIS MAGNUS 5629\NOVEMBER\CC_Statement_2025_11_23 (2).pdf: PDFPasswordIncorrect()
+⚠️  Warning: No text extracted (scanned image?). Skipping.
+
+--- Processing: OCTOBER/CC_Statement_2025_11_23 (3).pdf ---
+❌ Error extracting text from C:\Users\abrbh\Documents\Antigravity\financial app\statements\AXIS MAGNUS 5629\OCTOBER\CC_Statement_2025_11_23 (3).pdf: PDFPasswordIncorrect()
+⚠️  Warning: No text extracted (scanned image?). Skipping.
+
+--- Processing: DECEMBER/CC_Statement_2025_12_28.pdf ---
+❌ Error extracting text from C:\Users\abrbh\Documents\Antigravity\financial app\statements\Axis Atlas 5122\DECEMBER\CC_Statement_2025_12_28.pdf: PDFPasswordIncorrect()
+⚠️  Warning: No text extracted (scanned image?). Skipping.
+
+--- Processing: NOVEMBER/CC_Statement_2025_11_23.pdf ---
+❌ Error extracting text from C:\Users\abrbh\Documents\Antigravity\financial app\statements\Axis Atlas 5122\NOVEMBER\CC_Statement_2025_11_23.pdf: PDFPasswordIncorrect()
+⚠️  Warning: No text extracted (scanned image?). Skipping.
+
+--- Processing: OCTOBER/CC_Statement_2025_11_23 (1).pdf ---
+❌ Error extracting text from C:\Users\abrbh\Documents\Antigravity\financial app\statements\Axis Atlas 5122\OCTOBER\CC_Statement_2025_11_23 (1).pdf: PDFPasswordIncorrect()
+⚠️  Warning: No text extracted (scanned image?). Skipping.
+
+--- Processing: HDFC TATA NEU/BilledStatements_4705_23-11-25_16.20.pdf ---
+✅ Parser Detected: HdfcStatementParser
+✅ Parsed 3 transactions
+   [1] + ->  | 7650.0 | CREDIT
+   [2] + ->  | 20000.0 | CREDIT
+   [3] + ->  | 20000.0 | CREDIT
+
+
+--- Processing: HDFC TATA NEU/BilledStatements_4705_23-11-25_16.21 (1).pdf ---
+✅ Parser Detected: HdfcStatementParser
+✅ Parsed 3 transactions
+   [1] EMI UttarHaryanaBijiliVitarPanchkula -> Emi Uttarharyanabijilivitarpanchkula | 19360.0 | CREDIT
+   [2] EMI UttarHaryanaBijiliVitarPanchkula -> Emi Uttarharyanabijilivitarpanchkula | 16923.0 | CREDIT
+   [3] EMI UttarHaryanaBijiliVitarPanchkula -> Emi Uttarharyanabijilivitarpanchkula | 11367.0 | CREDIT
+
+
+--- Processing: HDFC TATA NEU/BilledStatements_4705_23-11-25_16.21.pdf ---
+✅ Parser Detected: HdfcStatementParser
+✅ Parsed 5 transactions
+   [1] FCAP TECHNOLOGIES PVTLGurgaon -> Fcap Technologies Pvtlgurgaon | 1.0 | CREDIT
+   [2] FCAP TECHNOLOGIES PVTLGurgaon + -> Fcap Technologies Pvtlgurgaon | 1.0 | CREDIT
+   [3] EMI FCAP TECHNOLOGIES PGurgaon + 120 -> Emi Fcap Technologies Pgurgaon 120 | 12008.52 | CREDIT
+   ... and 2 more.
+
+
+--- Processing: DECEMBER/2025-12-08_Statement (4).pdf ---
+   👁️ OCR Scanning 4 pages...
+❌ Unsupported Bank Format (No matching parser).
+
+
+--- Processing: NOVEMBER/2025-11-08_Statement (1).pdf ---
+   👁️ OCR Scanning 4 pages...
+❌ Unsupported Bank Format (No matching parser).
+
+
+--- Processing: OCTOBER/2025-10-08_Statement (4).pdf ---
+   👁️ OCR Scanning 5 pages...
+❌ Unsupported Bank Format (No matching parser).
+
+
+--- Processing: ICICI AMAZONE PAY/13Aug'25-12Sept'251763898402753.pdf ---
+   ⚠️ Garbage text (Identity-H) detected. Attempting OCR...
+   👁️ OCR Scanning 7 pages...
+✅ Parser Detected: IciciStatementParser
+✅ Parsed 3 transactions
+   [1] IND*AMAZON.IN - BILL P HTTP:/WWW.AM 491 -> Amazon | -24584.72 | DEBIT
+   [2] UTTAR HARYANA BIJILI VI PANCHKULA IN 209 -> Uttar Haryana Bijili Vi Panchkula In 209 | -20941.0 | DEBIT
+   [3] UTTAR HARYANA BIJILI VI PANCHKULA IN 390 -> Uttar Haryana Bijili Vi Panchkula In 390 | -39095.95 | DEBIT
+
+
+--- Processing: ICICI AMAZONE PAY/13Oct'25-12Nov'251763898444409.pdf ---
+   ⚠️ Garbage text (Identity-H) detected. Attempting OCR...
+   👁️ OCR Scanning 7 pages...
+✅ Parser Detected: IciciStatementParser
+✅ Parsed 9 transactions
+   [1] BBPS Payment received io} -> Bbps Payment Received Io | 22071.74 | CREDIT
+   [2] BBPS Payment received io} -> Bbps Payment Received Io | 12071.74 | CREDIT
+   [3] AMAZON PAY INDIA PVT LTD 204 -> Amazon Pay India Pvt Ltd 204 | -10236.0 | DEBIT
+   ... and 6 more.
+
+
+--- Processing: ICICI AMAZONE PAY/13Sept'25-12Oct'251763898353028.pdf ---
+   ⚠️ Garbage text (Identity-H) detected. Attempting OCR...
+   👁️ OCR Scanning 7 pages...
+✅ Parser Detected: IciciStatementParser
+✅ Parsed 11 transactions
+   [1] BBPS Payment received 0) -> Bbps Payment Received 0 | 14621.67 | CREDIT
+   [2] AMAZON PAY INDIA PVT LT BANGALORE IN 392 -> Amazon Pay India Pvt Lt Bangalore In 392 | -19600.0 | DEBIT
+   [3] AMAZON PAY INDIA PVT LT BANGALORE IN 200 -> Amazon Pay India Pvt Lt Bangalore In 200 | -10000.0 | DEBIT
+   ... and 8 more.
+
+
+--- Processing: INDUSIND EAZYDINNER/TransactionStatement_2025-10-15.pdf ---
+✅ Parser Detected: IciciStatementParser
+✅ Parsed 26 transactions
+   [1] BBPS PAYMENT 0 -> Bbps Payment 0 | 3539.0 | CREDIT
+   [2] BBPS PAYMENT 0 -> Bbps Payment 0 | 3539.0 | CREDIT
+   [3] FCAP TECHNOLOGIES PVT LTDGURGAON IN INSURANCE 989 -> Fcap Technologies Pvt Ltdgurgaon In Insurance 989 | -24717.1 | DEBIT
+   ... and 23 more.
+
+
+--- Processing: INDUSIND EAZYDINNER/TransactionStatement_2025-11-15.pdf ---
+✅ Parser Detected: IciciStatementParser
+✅ Parsed 20 transactions
+   [1] BBPS PAYMENT 0 -> Bbps Payment 0 | 1000.0 | CREDIT
+   [2] BBPS PAYMENT 0 -> Bbps Payment 0 | 19330.0 | CREDIT
+   [3] INDIE PAYMENT 0 -> Indie Payment 0 | 50000.0 | CREDIT
+   ... and 17 more.
+
+
+--- Processing: INDUSIND QATAR 0556/TransactionStatement_2025-11-15.pdf ---
+✅ Parser Detected: IciciStatementParser
+✅ Parsed 27 transactions
+   [1] BBPS PAYMENT 0 -> Bbps Payment 0 | 3276.0 | CREDIT
+   [2] INDIE PAYMENT 0 -> Indie Payment 0 | 3275.43 | CREDIT
+   [3] INDIE PAYMENT 0 -> Indie Payment 0 | 9900.0 | CREDIT
+   ... and 24 more.
+
+
+--- Processing: SBI AURAM/SBI Card Statement_0017_25-10-2025.pdf ---
+✅ Parser Detected: SbiStatementParser
+✅ Parsed 15 transactions
+   [1] BT PROCESSING FEE (EXCL TAX 288.00) -> Bt Processing Fee Excl Tax 288 00 | -1600.0 | DEBIT
+   [2] PAYMENT RECEIVED 000BD015286BAJAAACPCBG3 -> Payment Received 000Bd015286Bajaaacpcbg3 | 100000.0 | CREDIT
+   [3] PAYMENT RECEIVED 000BD015286BAJAAACPM5HP -> Payment Received 000Bd015286Bajaaacpm5Hp | 100000.0 | CREDIT
+   ... and 12 more.
+
+

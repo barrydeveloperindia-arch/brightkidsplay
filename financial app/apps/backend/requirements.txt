@@ -1,0 +1,13 @@
+fastapi==0.109.0
+uvicorn==0.27.0
+python-multipart==0.0.6
+torch==2.2.0 --index-url https://download.pytorch.org/whl/cpu
+numpy
+pdfplumber==0.10.3
+pytesseract
+pillow
+
+sqlalchemy==2.0.25
+asyncpg==0.29.0
+greenlet==3.0.3
+PyPDF2==3.0.1

@@ -1,0 +1,32 @@
+🚀 Starting MASS Population from: C:\Users\abrbh\Documents\Antigravity\financial app\statements
+
+📤 Uploading: AMERICAN EXPRESS PLATINUM 41009/2025-10-05.pdf... ✅ Success! (261 txns)
+       Sample: Payment Received Thank You | 94555.0
+📤 Uploading: AMERICAN EXPRESS PLATINUM 41009/2025-11-05.pdf... ✅ Success! (36 txns)
+       Sample: Payment Received Thank You | 60000.0
+📤 Uploading: HDFC TATA NEU/BilledStatements_4705_23-11-25_16.20.pdf... ✅ Success! (3 txns)
+       Sample:  | 7650.0
+📤 Uploading: HDFC TATA NEU/BilledStatements_4705_23-11-25_16.21 (1).pdf... ✅ Success! (3 txns)
+       Sample: Emi Uttarharyanabijilivitarpanchkula | 19360.0
+📤 Uploading: HDFC TATA NEU/BilledStatements_4705_23-11-25_16.21.pdf... ✅ Success! (5 txns)
+       Sample: Fcap Technologies Pvtlgurgaon | 1.0
+📤 Uploading: DECEMBER/2025-12-08_Statement (4).pdf... ❌ Error: HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=60)
+📤 Uploading: NOVEMBER/2025-11-08_Statement (1).pdf... ❌ Error: HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=60)
+📤 Uploading: OCTOBER/2025-10-08_Statement (4).pdf... ✅ Success! (47 txns)
+       Sample: Blinkit Bangalore Ind | -1147.0
+📤 Uploading: ICICI AMAZONE PAY/13Aug'25-12Sept'251763898402753.pdf... ✅ Success! (0 txns)
+📤 Uploading: ICICI AMAZONE PAY/13Oct'25-12Nov'251763898444409.pdf... ✅ Success! (0 txns)
+📤 Uploading: ICICI AMAZONE PAY/13Sept'25-12Oct'251763898353028.pdf... ❌ Failed: 500
+📤 Uploading: INDUSIND EAZYDINNER/TransactionStatement_2025-10-15.pdf... ✅ Success! (26 txns)
+       Sample: Bbps Payment 0 | 3539.0
+📤 Uploading: INDUSIND EAZYDINNER/TransactionStatement_2025-11-15.pdf... ✅ Success! (20 txns)
+       Sample: Bbps Payment 0 | 1000.0
+📤 Uploading: INDUSIND QATAR 0556/TransactionStatement_2025-11-15.pdf... ✅ Success! (27 txns)
+       Sample: Bbps Payment 0 | 3276.0
+📤 Uploading: SBI AURAM/SBI Card Statement_0017_25-10-2025.pdf... ✅ Success! (0 txns)
+
+-------------------------------------------------
+🎉 Dashboard Population Complete.
+Total Files Processed: 15
+Successful Uploads: 12
+Go to http://localhost:3000 to view your data!
